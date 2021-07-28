@@ -1,8 +1,8 @@
 import React from 'react';
 import "./CategoryCard.css"
 
-const CategoryCard = ({ category }) => {
-    const { name, img } = category;
+const CategoryCard = ({ category: {name, img}}) => {
+   
     return (
         <div className="category-div d-flex justify-content-around">
             <div className="d-flex align-items-center">

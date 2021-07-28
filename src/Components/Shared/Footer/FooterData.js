@@ -26,5 +26,5 @@ export const otherLinks = [
 export const footerInfo = [
     {icon: faBuffer, info1: 'Royal Furniture', id: 1},
     {icon: faMobileAlt, info1: '+8801715163960', info2: 'info@royal-furniture.com', id: 2},
-    {icon: faMapMarkedAlt, info1: '1200/Kosom Bag,Uttara,Dhaka', info2: 'Dhaka,Bangladesh', id: 3}
+    {icon: faMapMarkedAlt, info1: '1200/KosomBag,Uttara,Dhaka', info2: 'Dhaka,Bangladesh', id: 3}
 ];

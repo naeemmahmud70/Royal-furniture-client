@@ -5,17 +5,22 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './Components/Home/Home';
+import Home from './Components/Home/Home/Home';
+import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
+
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home></Home>
         </Route>
         <Route path="/home">
           <Home></Home>
+        </Route>
+        <Route path="*">
+          <PageNotFound></PageNotFound>
         </Route>
       </Switch>
     </Router>

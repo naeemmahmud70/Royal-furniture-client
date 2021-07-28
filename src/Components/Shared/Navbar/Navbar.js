@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
-import icon from "../../../../image/lamp.png"
+import icon from "../../../image/lamp.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faEject, faShoppingCart, faBlog, faChalkboardTeacher, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,15 +23,15 @@ const Navbar = () => {
                             <Link class="nav-link text-white" to="/about"><FontAwesomeIcon className="text-white" icon={faEject} /> About</Link>
                         </li>
                         <li class="nav-item mx-4 fw-bold nav-hover">
-                            <a class="nav-link text-white" href="#blog"><FontAwesomeIcon className="text-white" icon={faShoppingCart} /> Shop</a>
+                            <a class="nav-link text-white" href="#shop"><FontAwesomeIcon className="text-white" icon={faShoppingCart} /> Shop</a>
                         </li>
                         <li class="nav-item mx-4 fw-bold nav-hover">
-                            <Link class="nav-link text-white" to="/admin"><FontAwesomeIcon className="text-white" icon={faBlog} /> Blog</Link>
+                            <Link class="nav-link text-white" to="/blog"><FontAwesomeIcon className="text-white" icon={faBlog} /> Blog</Link>
                         </li>
                         <li class="nav-item mx-4 fw-bold nav-hover">
-                            <Link class="nav-link text-white" to="/admin"><FontAwesomeIcon className="text-white" icon={faChalkboardTeacher} /> DashBoard</Link>
+                            <Link class="nav-link text-white" to="/dashboard"><FontAwesomeIcon className="text-white" icon={faChalkboardTeacher} /> DashBoard</Link>
                         </li>
-                        <li class="nav-item mx-4 fw-bold nav-hover">
+                        <li class="nav-item mx-4 fw-bold bg-dark rounded nav-hover">
                             <Link class="nav-link text-white" to="/login"><FontAwesomeIcon className="text-white" icon={faSignInAlt} /> Login</Link>
                         </li>
                     </ul>
