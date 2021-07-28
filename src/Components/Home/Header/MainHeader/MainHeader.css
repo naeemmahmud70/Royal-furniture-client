@@ -1,0 +1,35 @@
+.header-section{
+    margin-top: 63px;
+    padding-top: 30px;
+    background-color: #FDE7D9;
+}
+.header-div{
+    height: 450px;
+}
+.banner-padding{
+    padding-left: 100px;
+    padding-right: 10px;
+}
+.header-button{
+    margin: 10px;
+    padding: 8px 20px;
+    border: 0;
+    border-radius: 7px;
+    color: white;
+    background:linear-gradient(180deg, rgb(255, 69, 0), rgba(133, 17, 17, 0.781));
+}
+.header-button :hover{
+    background-color: white;
+
+}
+
+.name-color{
+    color: rgba(255, 38, 0, 0.938);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.name-padding{
+    padding-bottom: 30px;
+}
+.text-justify{
+    text-align: justify;
+}

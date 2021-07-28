@@ -1,0 +1,13 @@
+#category-img{
+    width: 180px;
+    height: 140px;
+}
+.category-div{
+    margin: 20px;
+    /* margin-left: 100px; */
+    width: 400px;
+    height: 130px;
+    border-radius: 5px;
+    background:linear-gradient(180deg, #FDE7D9, rgb(255, 248, 220));
+    
+}

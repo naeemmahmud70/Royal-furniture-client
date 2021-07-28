@@ -1,0 +1,10 @@
+#category-flex-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.under-line{
+    border-bottom: 4px solid gray;
+    width: 300px;
+}
