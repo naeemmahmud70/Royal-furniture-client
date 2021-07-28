@@ -25,6 +25,7 @@ const Categories = () => {
             <div className="d-flex justify-content-center">
                 <div className="under-line text-center ">
                     <h1 className="name-color fw-bold ">Categories</h1>
+                    <span className="animate-border"></span>
                 </div>
             </div>
             <div id="category-flex-div">
