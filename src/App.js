@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home></Home>
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard></Dashboard>
         </Route>
         <Route path="*">
           <PageNotFound></PageNotFound>
