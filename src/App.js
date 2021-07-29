@@ -9,6 +9,7 @@ import Home from './Components/Home/Home/Home';
 import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import AddProduct from './Components/Dashboard/Dashboard/AddProduct/AddProduct';
+import PostBlog from './Components/Dashboard/PostBlog/PostBlog';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/addProduct">
           <AddProduct></AddProduct>
+        </Route>
+        <Route path="/postBlog">
+          <PostBlog></PostBlog>
         </Route>
         <Route path="*">
           <PageNotFound></PageNotFound>

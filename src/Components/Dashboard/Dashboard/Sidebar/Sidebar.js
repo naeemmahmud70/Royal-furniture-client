@@ -15,11 +15,6 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/profile" className="text-white">
-                        <FontAwesomeIcon icon={faUserCircle} /> <span>Profile</span>
-                    </Link>
-                </li>
-                <li>
                     <Link to="/orders" className="text-white">
                         <FontAwesomeIcon icon={faList} /> <span>Order</span>
                     </Link>
@@ -47,8 +42,8 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/delete" className="text-white" >
-                        <FontAwesomeIcon icon={ faPenAlt} /> <span>Post Blog</span>
+                    <Link to="/postBlog" className="text-white" >
+                        <FontAwesomeIcon icon={faPenAlt} /> <span>Post Blog</span>
                     </Link>
                 </li>
                 <li>

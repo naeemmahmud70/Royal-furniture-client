@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
-import './AddProduct.css'
-import { useForm } from "react-hook-form";
-import Sidebar from '../Sidebar/Sidebar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Sidebar from '../Dashboard/Sidebar/Sidebar';
+import './PostBlog.css'
 
-const AddProduct = () => {
+const PostBlog = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = data => {
-        const productData = {
-            name: data.name,
-            price: data.price,
+        const blogData = {
+            title: data.blogTitle,
+            date: data.postedDate,
+            description: data.description,
             imageURL: imageURL
         }
-        console.log(productData)
+        console.log(blogData)
     };
 
     const handleImageUpload = event => {
@@ -28,14 +27,12 @@ const AddProduct = () => {
             imageData)
             .then(function (response) {
                 setImageURL(response.data.data.display_url);
-               
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-
     }
+
     return (
         <div className="row bg-light">
             <div className="col-md-3">
@@ -43,18 +40,21 @@ const AddProduct = () => {
             </div>
             <div className="col-md-9">
                 <div className="bg-light">
-                    <h2 className="fw-bold">Add Product</h2>
+                    <h2 className="fw-bold">Post Blog</h2>
                     <hr />
                 </div>
                 <div className="shadow p-5 rounded">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-group w-50">
-                            <input className="form-control" type="text" placeholder="name" {...register("name")} />
+                            <input className="form-control" type="text" placeholder="Blog title" {...register("blogTitle")} />
                         </div>
 
                         <div className="form-group w-50">
-                            <input className="form-control" type="text" placeholder="price" {...register("price")} />
+                            <input className="form-control" type="text" placeholder="Posted Date" {...register("postedDate")} />
+                        </div>
+                        <div className="form-group w-50">
+                            <textarea name="" id="" cols="34" rows="10" {...register("description")}></textarea>
                         </div>
                         <div className="form-group">
                             <input className="form control" type="file" onChange={handleImageUpload} />
@@ -69,4 +69,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default PostBlog;
