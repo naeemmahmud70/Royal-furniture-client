@@ -1,0 +1,10 @@
+.form-group{
+    margin: 10px;
+}
+.submit-button{
+    border: 0;
+    padding: 6px 15px;
+    border-radius: 6px;
+    color: white;
+    background:linear-gradient(280deg, rgba(255, 0, 0, 0.89), rgba(0, 128, 0, 0.952));
+}

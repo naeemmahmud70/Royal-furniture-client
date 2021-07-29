@@ -8,6 +8,7 @@ import {
 import Home from './Components/Home/Home/Home';
 import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import AddProduct from './Components/Dashboard/Dashboard/AddProduct/AddProduct';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/dashboard">
           <Dashboard></Dashboard>
+        </Route>
+        <Route path="/addProduct">
+          <AddProduct></AddProduct>
         </Route>
         <Route path="*">
           <PageNotFound></PageNotFound>

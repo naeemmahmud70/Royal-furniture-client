@@ -37,7 +37,7 @@ const Sidebar = () => {
                 </li>
 
                 <li>
-                    <Link to="/addService" className="text-white">
+                    <Link to="/addProduct" className="text-white">
                         <FontAwesomeIcon icon={faAd} /> <span>Add Product</span>
                     </Link>
                 </li>
