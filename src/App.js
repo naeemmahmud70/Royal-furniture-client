@@ -8,8 +8,10 @@ import {
 import Home from './Components/Home/Home/Home';
 import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
-import AddProduct from './Components/Dashboard/Dashboard/AddProduct/AddProduct';
+
 import PostBlog from './Components/Dashboard/PostBlog/PostBlog';
+import AddProduct from './Components/Dashboard/AddProduct/AddProduct';
+
 
 
 function App() {

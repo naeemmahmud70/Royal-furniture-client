@@ -6,17 +6,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
+
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
+    console.log(imageURL)
 
     const onSubmit = data => {
         const productData = {
             name: data.name,
             price: data.price,
+            height: data.height,
+            width: data.width,
+            depth: data.depth,
+            weight: data.weight,
+            description: data.description,
             imageURL: imageURL
         }
-        console.log(productData)
+        console.log(productData, imageURL)
+        const url = `http://localhost:5000/addProduct`
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productData)
+
+        })
+            .then(res => console.log("server side responding", res))
     };
 
     const handleImageUpload = event => {
@@ -28,7 +45,7 @@ const AddProduct = () => {
             imageData)
             .then(function (response) {
                 setImageURL(response.data.data.display_url);
-               
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -49,12 +66,27 @@ const AddProduct = () => {
                 <div className="shadow p-5 rounded">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-group w-50">
-                            <input className="form-control" type="text" placeholder="name" {...register("name")} />
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="text" placeholder="product name" {...register("name")} />
                         </div>
 
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="text" placeholder="product price" {...register("price")} />
+                        </div>
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="number" placeholder="product height" {...register("height")} />
+                        </div>
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="number" placeholder="product width" {...register("width")} />
+                        </div>
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="number" placeholder="product depth" {...register("depth")} />
+                        </div>
+                        <div className="form-group col-md-5 col-sm-12">
+                            <input className="form-control" type="number" placeholder="product weight" {...register("weight")} />
+                        </div>
                         <div className="form-group w-50">
-                            <input className="form-control" type="text" placeholder="price" {...register("price")} />
+                            <textarea name="" id="" cols="34" rows="10" placeholder="product description" {...register("description")}></textarea>
                         </div>
                         <div className="form-group">
                             <input className="form control" type="file" onChange={handleImageUpload} />

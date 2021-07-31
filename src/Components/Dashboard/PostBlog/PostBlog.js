@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Sidebar from '../Dashboard/Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
+
 import './PostBlog.css'
 
 const PostBlog = () => {
@@ -46,11 +47,11 @@ const PostBlog = () => {
                 <div className="shadow p-5 rounded">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-group w-50">
+                        <div className="form-group col-md-5 col-sm-12">
                             <input className="form-control" type="text" placeholder="Blog title" {...register("blogTitle")} />
                         </div>
 
-                        <div className="form-group w-50">
+                        <div className="form-group col-md-5 col-sm-12">
                             <input className="form-control" type="text" placeholder="Posted Date" {...register("postedDate")} />
                         </div>
                         <div className="form-group w-50">

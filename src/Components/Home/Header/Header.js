@@ -6,15 +6,15 @@ const Header = () => {
     return (
         <section className="header-section">
             <div className="row">
-                <div className="col-md-7 d-flex align-items-center">
-                    <div className="banner-padding">
-                        <h1 className="name-padding">Welcome to <span className="name-color fw-bold">Royal Furniture</span></h1>
+                <div className="col-md-7  d-flex align-items-center justify-content-center">
+                    <div className="w-75">
+                        <h1 className="pb-4">Welcome to <span className="name-color fw-bold">Royal Furniture</span></h1>
                         <h3>Best Choice for your Interior</h3>
                         <h5 className="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe assumenda magnam laborum hic dolores quibusdam, doloribus ipsam dolorem beatae consectetur. Molestiae vero dolorem esse rerum amet fuga hic enim molestias, quidem accusamus blanditiis veritatis facere odit eius rem earum cumque deleniti? Dolorem eius tempora possimus odit nihil, ut minus est.</h5>
                         <Link className="nav-hover" to="/"><button className="header-button">Learn More...</button></Link><a className="nav-hover" href="#contact"><button className="header-button">Contact Us</button></a>
                     </div>
                 </div>
-                <div className="col-md-5 banner d-flex align-items-center">
+                <div className="col-md-5 col- banner d-flex align-items-center">
                     <img className="img-fluid" src={banner} alt="" />
                 </div>
             </div>

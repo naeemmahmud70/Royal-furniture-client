@@ -1,0 +1,11 @@
+.form-div{
+    height: auto;
+    background: linear-gradient(180deg, graY, #1E2749), url(../../../image/mockup-wall-dark-living-room-interior-background-with-leather-sofa-table-empty-dark-wooden-wall-3d-rendering.jpg);
+    background-blend-mode: screen;
+    background-position: center;
+    background-size: cover;
+}
+.message-btn{
+    background-color: brown;
+    color: white;
+}

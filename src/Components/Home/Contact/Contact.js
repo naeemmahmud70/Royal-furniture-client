@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import Aos from "aos";
 import "aos/dist/aos.css"
+import './Contact.css'
 
 const Contact = () => {
     useEffect(() => {
@@ -21,23 +22,23 @@ const Contact = () => {
     }
     return (
         <div className="form-div p-5 d-flex justify-content-center" id="contact">
-            <div className="container form-bg">
-                <h2 data-aos="fade-left" className="name-color">Contact <span className="text-white">with me</span></h2>
+            <div className="form-bg col-md-4">
+                <h2 data-aos="fade-left" className="text-white fw-bold faHighlight">Stay Connected With Us</h2>
                 <form data-aos="fade-left" onSubmit={sendEmail}>
-                    <div className="row d-flex flex-column">
-                        <div className="col-12 col-md-6 form-group pt-2 ">
-                            <input type="text" name="name" className="form-control" placeholder="name" />
-                        </div> <br />
-                        <div className="col-12 col-md-6  form-group pt-2 ">
-                            <input type="text" name="name" className="form-control" placeholder="email" />
-                        </div>
-                        <div className="col-12 col-md-6  form-group pt-2 ">
-                            <input type="text" name="name" className="form-control" placeholder="subject" />
-                        </div>
-                        <div className="col-12 col-md-6 form-group pt-2 ">
-                            <textarea name="message" id="" cols="24" rows="8" placeholder="Your message"></textarea><br />
-                            <input type="submit" value="Send Message" className="btn btn-info" />
-                        </div>
+                    <div className="form-group pt-2">
+                        <input type="text" name="name" className="form-control" placeholder="name" />
+                    </div>
+                    <div className="form-group pt-3">
+                        <input type="text" name="name" className="form-control" placeholder="email" />
+                    </div>
+                    <div className="form-group pt-3">
+                        <input type="text" name="name" className="form-control" placeholder="subject" />
+                    </div>
+                    <div className="form-group pt-3">
+                        <textarea name="message" id="" cols="34" rows="8" placeholder="Your message"></textarea><br />
+                    </div>
+                    <div className="form-group">
+                        <input className="btn btn-success" type="submit" value="Send Message"/>
                     </div>
                 </form>
             </div>

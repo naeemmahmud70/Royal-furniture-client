@@ -1,14 +1,8 @@
 .header-section{
-    margin-top: 63px;
-    padding-top: 30px;
     background-color: #FDE7D9;
 }
 .header-div{
     height: 450px;
-}
-.banner-padding{
-    padding-left: 100px;
-    padding-right: 10px;
 }
 .header-button{
     margin: 10px;
