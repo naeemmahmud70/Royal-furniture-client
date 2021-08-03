@@ -1,0 +1,12 @@
+.blog-card{
+    height: 420px;
+    width: 400px;
+    border-radius: 7px;
+    margin: 15px;
+    padding: 10px;
+}
+.blog-img img{
+    height: 280px;
+    width: 370px;
+    border-radius: 5px;
+}

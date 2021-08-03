@@ -8,15 +8,19 @@ import {
 import Home from './Components/Home/Home/Home';
 import PageNotFound from './Components/Shared/PageNotFound/PageNotFound';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
-
 import PostBlog from './Components/Dashboard/PostBlog/PostBlog';
 import AddProduct from './Components/Dashboard/AddProduct/AddProduct';
+import GiveReview from './Components/Dashboard/GiveReview/GiveReview';
+import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
+import Navbar from './Components/Shared/Navbar/Navbar';
+import Footer from './Components/Shared/Footer/Footer';
 
 
 
 function App() {
   return (
     <Router>
+      <Navbar></Navbar>
       <Switch>
         <Route exact path="/">
           <Home></Home>
@@ -30,13 +34,20 @@ function App() {
         <Route path="/addProduct">
           <AddProduct></AddProduct>
         </Route>
+        <Route path="/giveReview">
+          <GiveReview></GiveReview>
+        </Route>
         <Route path="/postBlog">
           <PostBlog></PostBlog>
+        </Route>
+        <Route path="/makeAdmin">
+          <MakeAdmin></MakeAdmin>
         </Route>
         <Route path="*">
           <PageNotFound></PageNotFound>
         </Route>
       </Switch>
+      <Footer></Footer>
     </Router>
   );
 }

@@ -2,21 +2,32 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
-
 import './PostBlog.css'
 
 const PostBlog = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
+    console.log(imageURL)
 
     const onSubmit = data => {
+        let newDate = new Date()
         const blogData = {
             title: data.blogTitle,
-            date: data.postedDate,
+            date: newDate.toDateString('DD/MM/YY'),
             description: data.description,
             imageURL: imageURL
         }
         console.log(blogData)
+        const url = `http://localhost:5000/addBlog`
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(blogData)
+
+        })
+            .then(res => console.log("server side responding", res))
     };
 
     const handleImageUpload = event => {
@@ -49,10 +60,6 @@ const PostBlog = () => {
 
                         <div className="form-group col-md-5 col-sm-12">
                             <input className="form-control" type="text" placeholder="Blog title" {...register("blogTitle")} />
-                        </div>
-
-                        <div className="form-group col-md-5 col-sm-12">
-                            <input className="form-control" type="text" placeholder="Posted Date" {...register("postedDate")} />
                         </div>
                         <div className="form-group w-50">
                             <textarea name="" id="" cols="34" rows="10" {...register("description")}></textarea>

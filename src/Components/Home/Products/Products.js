@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Product from './Product/Product';
 import './Products.css'
+import ProductCard from './ProductCard/ProductCard'
 
 const Products = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -18,7 +18,7 @@ const Products = () => {
             </div>
             <div className="card-flex">
                 {
-                    products.map(product => <Product product={product} key={product.name}></Product>)
+                    products.map(product => <ProductCard product={product} key={product._id}></ProductCard>)
                 }
             </div>
         </div>
