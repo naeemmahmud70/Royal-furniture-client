@@ -14,6 +14,7 @@ import GiveReview from './Components/Dashboard/GiveReview/GiveReview';
 import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import Navbar from './Components/Shared/Navbar/Navbar';
 import Footer from './Components/Shared/Footer/Footer';
+import Login from './Components/Login/Login/Login';
 
 
 
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home></Home>
+        </Route>
+        <Route path="/login">
+          <Login></Login>
         </Route>
         <Route path="/dashboard">
           <Dashboard></Dashboard>
