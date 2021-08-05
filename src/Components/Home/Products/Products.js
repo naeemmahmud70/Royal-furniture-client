@@ -12,11 +12,14 @@ const Products = () => {
     })
     return (
         <div>
-            <div className="text-center m-3">
-                <h2>Popular Products</h2>
-                <h5>Checkout our latest collections.</h5>
+            <div className="d-flex justify-content-center">
+                <div className="text-center under-line">
+                    <h1 className="fw-bold">Products</h1>
+                    <h5>Checkout our latest collections</h5>
+                    <span className=""></span>
+                </div>
             </div>
-            <div className="card-flex">
+            <div className="card-flex mt-3">
                 {
                     products.map(product => <ProductCard product={product} key={product._id}></ProductCard>)
                 }

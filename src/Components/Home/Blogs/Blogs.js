@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard/BlogCard';
+import './Blogs.css'
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -10,9 +11,12 @@ const Blogs = () => {
     }, [])
     return (
         <div className="m-3">
-            <div className="text-center">
-                <h1 className="fw-bold">BLOG</h1>
-                <h5>Latest new from the blog</h5>
+            <div className="d-flex justify-content-center">
+                <div className="text-center under-line">
+                    <h1 className="fw-bold">BLOGS</h1>
+                    <h5>Latest news from the blog</h5>
+                    <span className=""></span>
+                </div>
             </div>
             <div className="card-flex">
                 {

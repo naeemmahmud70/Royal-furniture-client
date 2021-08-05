@@ -1,0 +1,21 @@
+.review-card{
+    height: 330px;
+    width: 400px;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 7px;
+}
+.review-img img{
+    width: 70px;
+    border-radius: 25px;
+}
+.review-img{
+    margin-right: 15px;
+}
+.review-img h5{
+    margin-top: 9px;
+}
+
+.under-line{
+    border-bottom: 3px solid gray;
+}

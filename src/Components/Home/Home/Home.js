@@ -5,6 +5,7 @@ import Contact from '../Contact/Contact';
 import Header from '../Header/Header';
 import InteriorIdea from '../InteriorIdea/InteriorIdea';
 import Products from '../Products/Products';
+import Reviews from '../Reviews/Reviews';
 import './Home.css'
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Products></Products>
             <InteriorIdea></InteriorIdea>
             <Blogs></Blogs>
+            <Reviews></Reviews>
             <Contact></Contact>
         </div>
     );
