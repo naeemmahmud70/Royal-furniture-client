@@ -2,9 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './ProductCard.css'
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-    const { name, imageURL, price } = product
+    const { name, imageURL, price, _id } = product
     return (
         <div className="card-div shadow bg-light">
             <div className="card-img text-center">
@@ -16,7 +17,7 @@ const ProductCard = ({ product }) => {
                     <h3 className="fw-bold text-warning px-3">${price}</h3>
                 </div>
                 <div className="px-3">
-                    <button className="buy-button fw-bold"> <FontAwesomeIcon icon={faShoppingCart} />  Buy Now</button>
+                    <Link to={"/orderProduct/" + _id}><button className="buy-button fw-bold"> <FontAwesomeIcon icon={faShoppingCart} />  Buy Now</button></Link>
                 </div>
 
             </div>
