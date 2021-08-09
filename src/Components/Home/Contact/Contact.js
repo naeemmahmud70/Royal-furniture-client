@@ -21,7 +21,7 @@ const Contact = () => {
         e.target.reset()
     }
     return (
-        <div className="form-div p-5 d-flex justify-content-center" id="contact">
+        <section className="form-div mt-4 p-5 d-flex justify-content-center" id="contact">
             <div className="form-bg col-md-4">
                 <h2 data-aos="fade-left" className="text-white fw-bold faHighlight">Stay Connected With Us</h2>
                 <form data-aos="fade-left" onSubmit={sendEmail}>
@@ -42,7 +42,7 @@ const Contact = () => {
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
     );
 };
 

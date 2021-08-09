@@ -2,29 +2,45 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import Payment from '../../Payment/Payment';
+import './OrderProduct.css'
 
 const OrderProduct = () => {
     const { id } = useParams()
     const { register, handleSubmit } = useForm();
     const [orderProduct, setOrderProduct] = useState({});
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [shippingData, setShippingData] = useState(null)
     const { name, description, imageURL, price, height, width, depth, } = orderProduct;
 
+    console.log(shippingData);
 
     useEffect(() => {
         fetch('http://localhost:5000/orderProduct/' + id)
             .then(res => res.json())
             .then(data => setOrderProduct(data))
     }, [id]);
+
+
     const onSubmit = (data) => {
-        console.log(data)
+        setShippingData(data)
+    }
+
+
+    const handlePaymentSuccess = paymentId => {
+        const orderDetails = {
+            order: shippingData,
+            paymentId,
+            oderTime: new Date()
+        }
+        console.log(orderDetails)
     }
 
     return (
-        <section className="p-5">
+        <section className="row">
             <div className="row bg-light">
                 <div className="col-md-5 p-4 text-center">
-                    <img src={imageURL} alt="" />
+                    <img className="img-fluid" src={imageURL} alt="" />
                 </div>
                 <div className="col-md-7 p-4">
                     <h1 className="py-3 fw-bold">{name}</h1>
@@ -38,15 +54,15 @@ const OrderProduct = () => {
                 </div>
             </div>
             <hr />
-            <div>
+            <div style={{ display: shippingData ? 'none' : 'block' }}>
                 <div className="d-flex justify-content-center">
                     <div className="text-center under-line">
                         <h2 className="fw-bold px-4">Submit the form for order the product</h2>
                         <span className=""></span>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center pt-5">
-                    <div className="w-50 shadow p-4">
+                <div className="d-flex justify-content-center pt-3 m-4">
+                    <div className="shadow p-4 col-md-6 col-12 ">
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-group">
@@ -72,6 +88,19 @@ const OrderProduct = () => {
                                 <input value="Place Order" className="submit-button" type="submit" />
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div style={{ display: shippingData ? 'block' : 'none' }} className="">
+                <div className="d-flex justify-content-center">
+                    <div className="col-md-8 col-11 shadow m-4 p-4 bg-light">
+                        <h2 className="fw-bold text-center">Pay here</h2>
+                        <hr />
+                        <div>
+                            <h4>You will charged: ${price}</h4>
+                            <Payment handlePayment={handlePaymentSuccess}></Payment>
+                        </div>
                     </div>
                 </div>
             </div>

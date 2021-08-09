@@ -1,12 +1,14 @@
 .blog-card{
-    height: 420px;
+    height: 400px;
     width: 400px;
     border-radius: 7px;
     margin: 15px;
     padding: 10px;
 }
-.blog-img img{
+
+.blog-image img{
     height: 280px;
-    width: 370px;
+    width: 302px;
     border-radius: 5px;
 }
+

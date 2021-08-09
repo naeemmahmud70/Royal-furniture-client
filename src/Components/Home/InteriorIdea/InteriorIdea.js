@@ -4,9 +4,10 @@ import './InteriorIdea.css'
 
 const InteriorIdea = () => {
     return (
-            <div className="row bg-light mt-4">
-                <div className="col-md-5 interior-idea-img p-1">
-                    <img src={imgIdea} alt="" />
+        <section className="interior-idea-div">
+            <div className="row bg-light mt-5">
+                <div className="col-md-5">
+                    <img className="img-fluid" src={imgIdea} alt="" />
                 </div>
                 <div className="col-md-7 p-5">
                     <h1 className="fw-bold">Interior Idea For Your Room</h1>
@@ -15,6 +16,7 @@ const InteriorIdea = () => {
                     <button className="header-button">Learn More...</button>
                 </div>
             </div>
+        </section>
     );
 };
 

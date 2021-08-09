@@ -11,7 +11,7 @@ const Reviews = () => {
             .then(data => setReviews(data))
     }, []);
     return (
-        <div>
+        <section className="mt-3">
             <div className="d-flex justify-content-center">
                 <div className="text-center under-line">
                     <h1 className="fw-bold">Customer Reviews</h1>
@@ -23,7 +23,7 @@ const Reviews = () => {
                     reviews.map(review => <ReviewCard review={review} key={review._id} ></ReviewCard>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 

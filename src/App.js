@@ -17,6 +17,7 @@ import Footer from './Components/Shared/Footer/Footer';
 import Login from './Components/Login/Login/Login';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import OrderProduct from './Components/Home/OrderProduct/OrderProduct';
+import ReadFullBlog from './Components/Home/ReadFullBlog/ReadFullBlog';
 
 export const UserContext = createContext({});
 
@@ -38,9 +39,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/orderProduct/:id">
+          <Route path="/orderProduct/:id">
             <OrderProduct></OrderProduct>
-          </PrivateRoute>
+          </Route>
           <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
           </PrivateRoute>
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="/postBlog">
             <PostBlog></PostBlog>
+          </Route>
+          <Route path="/fullBlog/:id">
+            <ReadFullBlog></ReadFullBlog>
           </Route>
           <Route path="/makeAdmin">
             <MakeAdmin></MakeAdmin>

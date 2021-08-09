@@ -21,7 +21,7 @@ const Categories = () => {
         }
     ]
     return (
-        <div>
+        <section>
             <div className="d-flex justify-content-center">
                 <div className="text-center ">
                     <h1 className="name-color fw-bold ">Categories</h1>
@@ -33,7 +33,7 @@ const Categories = () => {
                     categories.map(category => <CategoryCard category={category} key={category.id}></CategoryCard>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 

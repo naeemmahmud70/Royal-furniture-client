@@ -10,7 +10,7 @@ const Blogs = () => {
             .then(data => setBlogs(data))
     }, [])
     return (
-        <div className="m-3">
+        <section className="m-3">
             <div className="d-flex justify-content-center">
                 <div className="text-center under-line">
                     <h1 className="fw-bold">BLOGS</h1>
@@ -23,7 +23,7 @@ const Blogs = () => {
                     blogs.map(blog => <BlogCard blog={blog} key={blog._id}></BlogCard>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
