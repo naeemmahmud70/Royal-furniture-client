@@ -11,7 +11,7 @@ const Products = () => {
             .then(data => setProducts(data))
     })
     return (
-        <section className="mt-4">
+        <section id="shop" className="mt-4">
             <div className="d-flex justify-content-center">
                 <div className="text-center under-line">
                     <h1 className="fw-bold">Products</h1>

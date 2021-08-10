@@ -10,7 +10,7 @@ const Blogs = () => {
             .then(data => setBlogs(data))
     }, [])
     return (
-        <section className="m-3">
+        <section id="blog" className="m-3">
             <div className="d-flex justify-content-center">
                 <div className="text-center under-line">
                     <h1 className="fw-bold">BLOGS</h1>

@@ -10,7 +10,19 @@ const MakeAdmin = () => {
             email: data.email,
         }
         console.log(adminData)
+        const url = `http://localhost:5000/addAdmin`
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(adminData)
+
+        })
+            .then(res => console.log("server side responding", res))
+
     };
+
     return (
         <div className="row bg-light">
             <div className="col-md-3">

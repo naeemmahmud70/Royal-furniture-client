@@ -20,13 +20,13 @@ const Navbar = () => {
 
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
-                            <Link class="nav-link text-white" to="/about"><FontAwesomeIcon className="text-white" icon={faEject} /> About</Link>
+                        <a class="nav-link text-white" href="#aboutUs"><FontAwesomeIcon className="text-white" icon={faEject} /> About</a>
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
                             <a class="nav-link text-white" href="#shop"><FontAwesomeIcon className="text-white" icon={faShoppingCart} /> Shop</a>
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
-                            <Link class="nav-link text-white" to="/blog"><FontAwesomeIcon className="text-white" icon={faBlog} /> Blog</Link>
+                            <a class="nav-link text-white" href="#blog"><FontAwesomeIcon className="text-white" icon={faBlog} /> Blog</a>
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
                             <Link class="nav-link text-white" to="/dashboard"><FontAwesomeIcon className="text-white" icon={faChalkboardTeacher} /> DashBoard</Link>

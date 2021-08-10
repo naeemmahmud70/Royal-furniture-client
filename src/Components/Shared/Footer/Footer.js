@@ -11,7 +11,7 @@ import FooterCol from './FooterCol';
 
 const Footer = () => {
     return (
-        <section class='row footer'>
+        <section id="aboutUs" class='row footer'>
             <Row className="col-md-11 mx-auto">
                 <Row className="align-items-center footerInfo">
                     {
