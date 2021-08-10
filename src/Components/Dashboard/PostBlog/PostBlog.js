@@ -7,7 +7,6 @@ import './PostBlog.css'
 const PostBlog = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null);
-    console.log(imageURL)
 
     const onSubmit = data => {
         let newDate = new Date()
@@ -17,7 +16,7 @@ const PostBlog = () => {
             description: data.description,
             imageURL: imageURL
         }
-        console.log(blogData)
+        
         const url = `http://localhost:5000/addBlog`
         fetch(url, {
             method: 'POST',

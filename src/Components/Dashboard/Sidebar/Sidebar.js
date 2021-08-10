@@ -15,8 +15,8 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/orders" className="text-white">
-                        <FontAwesomeIcon icon={faList} /> <span>Order</span>
+                    <Link to="/seeOrderList" className="text-white">
+                        <FontAwesomeIcon icon={faList} /> <span>Your Orders</span>
                     </Link>
                 </li>
                 <li>
@@ -26,8 +26,8 @@ const Sidebar = () => {
                 </li>
 
                 <li>
-                    <Link to="/ordersList" className="text-white">
-                        <FontAwesomeIcon icon={faList} /> <span>Orders List</span>
+                    <Link to="/manageOrderList" className="text-white">
+                        <FontAwesomeIcon icon={faList} /> <span>Manage Orders</span>
                     </Link>
                 </li>
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/admin" className="text-white" >
+                    <Link to="/deleteProduct" className="text-white" >
                         <FontAwesomeIcon icon={faTrash} /> <span>Manage Products</span>
                     </Link>
                 </li>
@@ -47,7 +47,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/delete" className="text-white" >
+                    <Link to="/deleteBlog" className="text-white" >
                         <FontAwesomeIcon icon={faTrash} /> <span>Manage Blog</span>
                     </Link>
                 </li>

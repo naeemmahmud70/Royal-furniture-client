@@ -15,7 +15,7 @@ const Navbar = () => {
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-4  fw-bold nav-hover">
+                        <li class="nav-item mx-4 fw-bold nav-hover ">
                             <Link class="nav-link text-white" to="/home"><FontAwesomeIcon className="text-white" icon={faHome} /> Home</Link>
 
                         </li>

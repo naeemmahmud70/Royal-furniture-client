@@ -13,7 +13,6 @@ const OrderProduct = () => {
     const [shippingData, setShippingData] = useState(null)
     const { name, description, imageURL, price, height, width, depth, } = orderProduct;
 
-    console.log(shippingData);
 
     useEffect(() => {
         fetch('http://localhost:5000/orderProduct/' + id)
@@ -28,12 +27,27 @@ const OrderProduct = () => {
 
 
     const handlePaymentSuccess = paymentId => {
+        const date = new Date();
+
         const orderDetails = {
+            ...loggedInUser,
             order: shippingData,
-            paymentId,
-            oderTime: new Date()
+            orderStatus: '',
+            oderTime: date.toDateString('DD/MM/YY'),
+            paymentId
         }
-        console.log(orderDetails)
+        console.log(orderDetails);
+
+        const url = `http://localhost:5000/addOrder`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderDetails)
+        })
+            .then(res => console.log('server side response', res))
+
     }
 
     return (
@@ -66,7 +80,7 @@ const OrderProduct = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-group">
-                                <input defaultValue={loggedInUser.name} className="form-control" type="text"{...register("user name")} />
+                                <input defaultValue={loggedInUser.name} className="form-control" type="text"{...register("userName")} />
                             </div>
 
                             <div className="form-group">
@@ -79,7 +93,7 @@ const OrderProduct = () => {
                                 <input className="form-control" type="text" placeholder="enter your address" {...register("address")} />
                             </div>
                             <div className="form-group">
-                                <input defaultValue={name} className="form-control" type="text"  {...register("product name")} />
+                                <input defaultValue={name} className="form-control" type="text"  {...register("productName")} />
                             </div>
                             <div className="form-group">
                                 <input defaultValue={price} className="form-control" type="number" {...register("price")} />

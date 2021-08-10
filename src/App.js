@@ -18,6 +18,10 @@ import Login from './Components/Login/Login/Login';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import OrderProduct from './Components/Home/OrderProduct/OrderProduct';
 import ReadFullBlog from './Components/Home/ReadFullBlog/ReadFullBlog';
+import SeeOrderList from './Components/Dashboard/SeeOrderList/SeeOrderList';
+import ManageOrderList from './Components/Dashboard/ManageOrderList/ManageOrderList';
+import DeleteProduct from './Components/Dashboard/DeleteProduct/DeleteProduct';
+import DeleteBlog from './Components/Dashboard/DeleteBlog/DeleteBlog';
 
 export const UserContext = createContext({});
 
@@ -42,11 +46,20 @@ function App() {
           <Route path="/orderProduct/:id">
             <OrderProduct></OrderProduct>
           </Route>
-          <PrivateRoute path="/dashboard">
+          <Route path="/seeOrderList">
+            <SeeOrderList></SeeOrderList>
+          </Route>
+          <Route path="/dashboard">
             <Dashboard></Dashboard>
-          </PrivateRoute>
+          </Route>
           <Route path="/addProduct">
             <AddProduct></AddProduct>
+          </Route>
+          <Route path="/deleteProduct">
+            <DeleteProduct></DeleteProduct>
+          </Route>
+          <Route path="/manageOrderList">
+            <ManageOrderList></ManageOrderList>
           </Route>
           <Route path="/giveReview">
             <GiveReview></GiveReview>
@@ -56,6 +69,9 @@ function App() {
           </Route>
           <Route path="/fullBlog/:id">
             <ReadFullBlog></ReadFullBlog>
+          </Route>
+          <Route path="/deleteBlog">
+            <DeleteBlog></DeleteBlog>
           </Route>
           <Route path="/makeAdmin">
             <MakeAdmin></MakeAdmin>

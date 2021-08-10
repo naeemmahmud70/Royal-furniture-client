@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import './BlogCard.css'
 
 const BlogCard = ({ blog }) => {
-    console.log(blog)
     const { title, date, imageURL, _id } = blog;
-    console.log(title, date, imageURL)
+    
     return (
         <div className="blog-card shadow bg-light" >
             <Link to={"/fullBlog/" + _id}>
