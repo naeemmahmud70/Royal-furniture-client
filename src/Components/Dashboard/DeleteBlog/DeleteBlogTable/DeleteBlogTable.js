@@ -1,15 +1,16 @@
 import React from 'react';
 import DeleteIcon from '../../../../image/delete-icon.jpg'
 
-const DeleteBlogTable = ({ blogs }) => {
+const DeleteBlogTable = ({ blogs, setIsDeleted }) => {
 
     const handleDelete = id => {
-        console.log(id)
+        setIsDeleted(true)
         fetch(`http://localhost:5000/deleteBlog/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(result => {
+                result.deletedCount && setIsDeleted(false);
                 console.log('deleted successfully', result)
             })
     }

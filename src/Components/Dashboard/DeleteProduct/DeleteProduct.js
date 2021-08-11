@@ -4,12 +4,13 @@ import DeleteTable from './DeleteTable/DeleteTable';
 
 const DeleteProduct = () => {
     const [products, setProducts] = useState([]);
+    const [isDeleted, setDeleted] = useState(false)
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [isDeleted])
 
 
     return (
@@ -21,7 +22,7 @@ const DeleteProduct = () => {
                 <h2 className="fw-bold">Delete Product</h2>
                 <hr />
                 <div className="shadow p-5">
-                    <DeleteTable products={products}></DeleteTable>
+                    <DeleteTable products={products} setDeleted={setDeleted}></DeleteTable>
                 </div>
             </div>
         </div>

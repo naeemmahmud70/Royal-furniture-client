@@ -2,32 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import './PostBlog.css'
 
 const PostBlog = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [imageURL, setImageURL] = useState(null);
-
-    const onSubmit = data => {
-        let newDate = new Date()
-        const blogData = {
-            title: data.blogTitle,
-            date: newDate.toDateString('DD/MM/YY'),
-            description: data.description,
-            imageURL: imageURL
-        }
-        
-        const url = `http://localhost:5000/addBlog`
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(blogData)
-
-        })
-            .then(res => console.log("server side responding", res))
-    };
 
     const handleImageUpload = event => {
         const imageData = new FormData();
@@ -43,6 +24,30 @@ const PostBlog = () => {
                 console.log(error);
             });
     }
+
+    const onSubmit = data => {
+        let newDate = new Date()
+        const blogData = {
+            title: data.blogTitle,
+            date: newDate.toDateString('DD/MM/YY'),
+            description: data.description,
+            imageURL: imageURL
+        }
+        console.log(imageURL, blogData);
+        const url = `http://localhost:5000/addBlog`
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(blogData)
+        })
+            .then(res => {
+                console.log("server side responding", res)
+                setImageURL(null);
+                reset();
+            });
+    };
 
     return (
         <div className="row bg-light">
@@ -64,10 +69,11 @@ const PostBlog = () => {
                             <textarea name="" id="" cols="34" rows="10" {...register("description")}></textarea>
                         </div>
                         <div className="form-group">
-                            <input className="form control" type="file" onChange={handleImageUpload} />
+                            <label htmlFor="upload" className="image-upload-button fw-bold">Upload Image <FontAwesomeIcon icon={faCloudUploadAlt} /></label>
+                            <input id="upload" hidden="hidden" className="form control" type="file" onChange={handleImageUpload} />
                         </div>
                         <div className="form-group">
-                            <input className="submit-button" type="submit" />
+                            {imageURL ? <input className="submit-button" type="submit" /> : <input value="Submit" className="disable-button" />}
                         </div>
                     </form>
                 </div>

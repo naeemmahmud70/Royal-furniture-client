@@ -6,22 +6,23 @@ import ManageOrderTable from './ManageOrderTable/ManageOrderTable';
 const ManageOrderList = () => {
 
     const [orderList, setOrderList] = useState([]);
-    const [IsStatusUpdate, setStatusUpdate] = useState({});
+    const [IsStatusUpdate, setStatusUpdate] = useState(false);
 
 
     useEffect(() => {
         fetch('http://localhost:5000/manageOrders')
             .then(res => res.json())
             .then(data => setOrderList(data))
-    }, []);
+    }, [IsStatusUpdate]);
 
     const handleUpdate = (id, orderStatus) => {
-
+        setStatusUpdate(true)
         axios.patch(`http://localhost:5000/update/${id}`, { status: orderStatus })
-            .then(result => {
-                console.log("responding", result)
-            })
-    }
+            .then(res => {
+                res.data.modifiedCount && setStatusUpdate(false)
+                console.log("responding", res)
+            });
+    };
 
     return (
         <div className="row">
@@ -30,7 +31,7 @@ const ManageOrderList = () => {
             </div>
 
             <div className="col-md-9 bg-light">
-                <h4 className="fw-bold mt-2">Manage Order</h4>
+                <h2 className="fw-bold mt-2">Manage Order</h2>
                 <hr />
                 <div className="shadow p-5">
                     <ManageOrderTable orderList={orderList} key={orderList._id} handleUpdate={handleUpdate}></ManageOrderTable>

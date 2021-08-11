@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const adminData = {
             name: data.name,
@@ -21,6 +21,7 @@ const MakeAdmin = () => {
         })
             .then(res => console.log("server side responding", res))
 
+        reset();
     };
 
     return (

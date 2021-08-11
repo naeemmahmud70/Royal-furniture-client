@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const ReviewCard = (props) => {
     const { name, email, photo, review } = props.review
-    console.log(name, email, photo, review)
+
     return (
         <div className="review-card shadow mt-3 p-3">
             <div className="d-flex">

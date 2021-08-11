@@ -1,6 +1,10 @@
 .cancelButton{
-    border: 0;
+    border: 2px solid gray;
     padding: 6px 15px;
     color: red;
     border-radius: 5px;
+}
+.cancelButton :hover{
+    background-color: red;
+    color: white;
 }

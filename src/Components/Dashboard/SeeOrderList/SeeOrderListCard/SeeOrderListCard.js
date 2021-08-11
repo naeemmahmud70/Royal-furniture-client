@@ -1,15 +1,16 @@
 import React from 'react';
 
-const SeeOrderListCard = ({ orderList }) => {
+const SeeOrderListCard = ({ orderList, setIsCanceled }) => {
 
     const handleCancel = id => {
-        console.log(id)
+        setIsCanceled(true);
         fetch(`http://localhost:5000/cancel/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(result => {
-                console.log('deleted successfully', result)
+                result.deletedCount && setIsCanceled();
+                console.log('deleted successfully', result.deletedCount);
             })
     };
 
@@ -29,7 +30,7 @@ const SeeOrderListCard = ({ orderList }) => {
                 {
                     orderList.map((order, index) =>
                         <tr>
-                            <td>{index + 1}</td>
+                            <td>{index + 1}.</td>
                             <td>{order.order.productName}</td>
                             <td>${order.order.price}</td>
                             <td>{order.order.userName}</td>

@@ -5,7 +5,7 @@ import Sidebar from '../Sidebar/Sidebar';
 
 
 const GiveReview = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     console.log(loggedInUser)
 
@@ -27,6 +27,8 @@ const GiveReview = () => {
 
         })
             .then(res => console.log("server side responding", res))
+
+        reset();
     };
 
     return (

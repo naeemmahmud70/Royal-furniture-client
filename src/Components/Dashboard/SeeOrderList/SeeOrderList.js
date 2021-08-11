@@ -6,14 +6,15 @@ import SeeOrderListCard from './SeeOrderListCard/SeeOrderListCard';
 
 const SeeOrderList = () => {
     const [orderList, setOrderList] = useState([]);
+    const [isCanceled, setIsCanceled] = useState(false)
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser)
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/seeOrders?email='+ loggedInUser.email)
+        fetch('http://localhost:5000/seeOrders?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrderList(data))
-    }, []);
+    }, [loggedInUser.email, isCanceled]);
 
     return (
         <div className="row">
@@ -25,7 +26,7 @@ const SeeOrderList = () => {
                 <h4 className="fw-bold mt-2">Order List</h4>
                 <hr />
                 <div className="shadow p-5">
-                    <SeeOrderListCard orderList={orderList} key={orderList._id}></SeeOrderListCard>
+                    <SeeOrderListCard orderList={orderList} key={orderList._id} setIsCanceled={setIsCanceled}></SeeOrderListCard>
                 </div>
             </div>
         </div>
