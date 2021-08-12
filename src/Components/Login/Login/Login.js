@@ -28,7 +28,6 @@ const Login = () => {
         error: '',
         success: false,
     })
-    console.log(user)
 
     const handleBlur = (e) => {
         let isFieldValid;
@@ -61,7 +60,7 @@ const Login = () => {
                     setUser(newUserInfo)
                     updateUserName(user.name)
                     const { displayName, email } = userCredential.user;
-                    const signInUser = { name: displayName, email };
+                    const signInUser = { name: displayName, email: email };
                     setLoggedInUser(signInUser);
                     storeAuthToken();
 
@@ -82,7 +81,7 @@ const Login = () => {
                     newUserInfo.error = "";
                     setUser(newUserInfo)
                     const { displayName, email } = userCredential.user;
-                    const signInUser = { name: displayName, email };
+                    const signInUser = { name: displayName, email: email };
                     setLoggedInUser(signInUser);
                     storeAuthToken();
 

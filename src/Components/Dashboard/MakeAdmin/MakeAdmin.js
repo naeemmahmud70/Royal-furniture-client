@@ -38,11 +38,11 @@ const MakeAdmin = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-group col-md-5 col-sm-12">
-                            <input className="form-control" type="text" {...register("name")} />
+                            <input className="form-control" type="text" placeholder="new admin name" {...register("name")} />
                         </div>
 
                         <div className="form-group col-md-5 col-sm-12">
-                            <input className="form-control" type="text" {...register("email")} />
+                            <input className="form-control" type="text" placeholder="new admin email" {...register("email")} />
                         </div>
                         <div className="form-group">
                             <input className="submit-button" type="submit" />

@@ -11,16 +11,17 @@ import jwt_decode from "jwt-decode";
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [isAdmin, setIsAdmin] = useState(false);
+    console.log(isAdmin)
 
     useEffect(() => {
-        fetch('https://mighty-journey-54008.herokuapp.com/isAdmin', {
+        fetch('http://localhost:5000/isAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
             .then(data => setIsAdmin(data));
-    }, []);
+    });
 
     const isSignOut = () => {
         const token = sessionStorage.removeItem('token');
