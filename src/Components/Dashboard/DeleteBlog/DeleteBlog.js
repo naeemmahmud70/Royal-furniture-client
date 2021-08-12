@@ -17,8 +17,8 @@ const DeleteBlog = () => {
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-9 p-4  bg-light">
-                <h2 className="fw-bold">Delete Product</h2>
+            <div className="col-md-9  bg-light">
+                <h2 className="fw-bold p-2">Delete Blog</h2>
                 <hr />
                 <div className="shadow p-5">
                     <DeleteBlogTable blogs={blogs} setIsDeleted={setIsDeleted}></DeleteBlogTable>

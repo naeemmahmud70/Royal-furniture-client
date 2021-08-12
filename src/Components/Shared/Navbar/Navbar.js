@@ -1,11 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import icon from "../../../image/lamp.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faEject, faShoppingCart, faBlog, faChalkboardTeacher, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faEject, faShoppingCart, faBlog, faChalkboardTeacher, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '../../../App';
+import firebase from "firebase/app";
+import "firebase/auth";
+import jwt_decode from "jwt-decode";
 
 const Navbar = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const isSignOut = () => {
+        const token = sessionStorage.removeItem('token');
+        if (!token) {
+            return false;
+        }
+        const decodedToken = jwt_decode(token);
+        // get current time
+        const currentTime = new Date().getTime() / 1000;
+        // compare the expiration time with the current time
+        // will return false if expired and will return true if not expired
+        return decodedToken.exp > currentTime;
+    }
+
+    const handleLogOut = () => {
+        console.log('clicked')
+        firebase.auth().signOut()
+            .then(() => {
+                isSignOut()
+                const signOutUser = {
+                    isSignIn: false,
+                    name: '',
+                    email: '',
+                    photo: ''
+                }
+                setLoggedInUser(signOutUser);
+
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
+
     return (
         <nav class="navbar navbar-expand-lg navbar-light sticky-top t-0 nav-bg">
             <div class="container-fluid">
@@ -20,7 +57,7 @@ const Navbar = () => {
 
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
-                        <a class="nav-link text-white" href="#aboutUs"><FontAwesomeIcon className="text-white" icon={faEject} /> About</a>
+                            <a class="nav-link text-white" href="#aboutUs"><FontAwesomeIcon className="text-white" icon={faEject} /> About</a>
                         </li>
                         <li class="nav-item mx-4  fw-bold nav-hover">
                             <a class="nav-link text-white" href="#shop"><FontAwesomeIcon className="text-white" icon={faShoppingCart} /> Shop</a>
@@ -32,7 +69,7 @@ const Navbar = () => {
                             <Link class="nav-link text-white" to="/dashboard"><FontAwesomeIcon className="text-white" icon={faChalkboardTeacher} /> DashBoard</Link>
                         </li>
                         <li class="nav-item mx-4  fw-bold bg-dark rounded nav-hover">
-                            <Link class="nav-link text-white" to="/login"><FontAwesomeIcon className="text-white" icon={faSignInAlt} /> Login</Link>
+                            <Link class="nav-link text-white" to="/login"> {loggedInUser.email ? <span onClick={handleLogOut}> LogOut <FontAwesomeIcon className="text-white" icon={faSignOutAlt} /></span> : <span><FontAwesomeIcon className="text-white" icon={faSignInAlt} /> LogIn</span>} </Link>
                         </li>
                     </ul>
                 </div>

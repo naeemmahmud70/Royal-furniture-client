@@ -23,7 +23,7 @@ const SeeOrderList = () => {
             </div>
 
             <div className="col-md-9 bg-light">
-                <h4 className="fw-bold mt-2">Order List</h4>
+                <h2 className="fw-bold p-2">Order List</h2>
                 <hr />
                 <div className="shadow p-5">
                     <SeeOrderListCard orderList={orderList} key={orderList._id} setIsCanceled={setIsCanceled}></SeeOrderListCard>

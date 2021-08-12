@@ -15,32 +15,34 @@ const SeeOrderListCard = ({ orderList, setIsCanceled }) => {
     };
 
     return (
-        <table className="table table-borderless table-light table-striped">
-            <thead>
-                <tr>
-                    <th className="text-secondary text-left" scope="col">Sr No</th>
-                    <th className="text-secondary" scope="col">Product</th>
-                    <th className="text-secondary" scope="col">Price</th>
-                    <th className="text-secondary" scope="col">Name</th>
-                    <th className="text-secondary" scope="col">email</th>
-                    <th className="text-secondary" scope="col">Cancel Order</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    orderList.map((order, index) =>
-                        <tr>
-                            <td>{index + 1}.</td>
-                            <td>{order.order.productName}</td>
-                            <td>${order.order.price}</td>
-                            <td>{order.order.userName}</td>
-                            <td>{order.order.email}</td>
-                            <td><button className="cancelButton fw-bold" onClick={() => handleCancel(order._id)}>Cancel</button></td>
-                        </tr>
-                    )
-                }
-            </tbody>
-        </table>
+        <div className="table-responsive">
+            <table className="table table-borderless table-light table-striped">
+                <thead>
+                    <tr>
+                        <th className="text-secondary text-left" scope="col">Sr No</th>
+                        <th className="text-secondary" scope="col">Product</th>
+                        <th className="text-secondary" scope="col">Price</th>
+                        <th className="text-secondary" scope="col">Name</th>
+                        <th className="text-secondary" scope="col">Phone No.</th>
+                        <th className="text-secondary" scope="col">Cancel Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        orderList.map((order, index) =>
+                            <tr>
+                                <td>{index + 1}.</td>
+                                <td>{order.order.productName}</td>
+                                <td>${order.order.price}</td>
+                                <td>{order.order.userName}</td>
+                                <td>{order.order.phoneNumber}</td>
+                                <td><button className="cancelButton fw-bold" onClick={() => handleCancel(order._id)}>Cancel</button></td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </div>
     );
 };
 

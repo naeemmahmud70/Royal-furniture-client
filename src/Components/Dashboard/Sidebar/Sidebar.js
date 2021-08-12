@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faList, faPen, faPenAlt, faAd, faUsers, faTrash, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faList, faPen, faPenAlt, faAd, faUsers, faTrash, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import firebase from "firebase/app";
+import "firebase/auth";
+import jwt_decode from "jwt-decode";
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
@@ -18,6 +21,37 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, []);
+
+    const isSignOut = () => {
+        const token = sessionStorage.removeItem('token');
+        if (!token) {
+            return false;
+        }
+        const decodedToken = jwt_decode(token);
+        // get current time
+        const currentTime = new Date().getTime() / 1000;
+        // compare the expiration time with the current time
+        // will return false if expired and will return true if not expired
+        return decodedToken.exp > currentTime;
+    }
+
+    const handleLogOut = () => {
+        console.log('clicked')
+        firebase.auth().signOut()
+            .then(() => {
+                isSignOut()
+                const signOutUser = {
+                    isSignIn: false,
+                    name: '',
+                    email: '',
+                    photo: ''
+                }
+                setLoggedInUser(signOutUser);
+
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
 
     return (
         <div className=" sidebar d-flex flex-column justify-content-between  col-md-12 py-5 px-4" style={{ height: "100vh" }}>
@@ -74,7 +108,7 @@ const Sidebar = () => {
 
             </ul>
             <div>
-                <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                <Link onClick={handleLogOut} to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
             </div>
         </div>
     );

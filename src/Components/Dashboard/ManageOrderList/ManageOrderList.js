@@ -31,7 +31,7 @@ const ManageOrderList = () => {
             </div>
 
             <div className="col-md-9 bg-light">
-                <h2 className="fw-bold mt-2">Manage Order</h2>
+                <h2 className="fw-bold p-2">Manage Order</h2>
                 <hr />
                 <div className="shadow p-5">
                     <ManageOrderTable orderList={orderList} key={orderList._id} handleUpdate={handleUpdate}></ManageOrderTable>

@@ -17,7 +17,8 @@ const DeleteTable = ({ products, setDeleted }) => {
     }
 
     return (
-        <table className="table table-borderless table-light table-striped">
+      <div className="table-responsive">
+            <table className="table table-borderless table-light table-striped">
             <thead>
                 <tr>
                     <th className="text-secondary text-left" scope="col">Sr No</th>
@@ -39,6 +40,7 @@ const DeleteTable = ({ products, setDeleted }) => {
                 }
             </tbody>
         </table>
+      </div>
     );
 };
 

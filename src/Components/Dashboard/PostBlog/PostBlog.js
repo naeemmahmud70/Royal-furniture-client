@@ -56,7 +56,7 @@ const PostBlog = () => {
             </div>
             <div className="col-md-9">
                 <div className="bg-light">
-                    <h2 className="fw-bold">Post Blog</h2>
+                    <h2 className="fw-bold p-2">Post Blog</h2>
                     <hr />
                 </div>
                 <div className="shadow p-5 rounded">
