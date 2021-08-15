@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 
 const GiveReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log(loggedInUser)
 
     const onSubmit = data => {
         const reviewData = {
@@ -16,7 +17,7 @@ const GiveReview = () => {
             review: data.review,
             photo: loggedInUser.photo
         }
-        console.log(reviewData)
+
         const url = `http://localhost:5000/addReview`
         fetch(url, {
             method: 'POST',
@@ -24,9 +25,15 @@ const GiveReview = () => {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(reviewData)
-
         })
-            .then(res => console.log("server side responding", res))
+            .then(res => {
+                if (res.status) {
+                    swal("Done!", "Your review will be show in home page!", "success")
+                }
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            });
 
         reset();
     };
@@ -43,7 +50,6 @@ const GiveReview = () => {
                 </div>
                 <div className="shadow p-5 rounded">
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <div className="form-group col-md-5 col-sm-12">
                             <input defaultValue={loggedInUser.name} className="form-control" type="text" {...register("name")} />
                         </div>

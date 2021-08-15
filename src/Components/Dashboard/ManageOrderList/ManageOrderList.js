@@ -8,7 +8,6 @@ const ManageOrderList = () => {
     const [orderList, setOrderList] = useState([]);
     const [IsStatusUpdate, setStatusUpdate] = useState(false);
 
-
     useEffect(() => {
         fetch('http://localhost:5000/manageOrders')
             .then(res => res.json())
@@ -29,7 +28,6 @@ const ManageOrderList = () => {
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-
             <div className="col-md-9 bg-light">
                 <h2 className="fw-bold p-2">Manage Order</h2>
                 <hr />

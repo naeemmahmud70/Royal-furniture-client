@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './ProductCard.css'
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ProductCard = ({ product }) => {
     const { name, imageURL, price, _id } = product
+
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+    }, [])
+
     return (
-        <div className="card-div shadow bg-light">
+        <div data-aos="fade-up" className="card-div shadow bg-light">
             <div className="card-img text-center">
-                <img className="" src={imageURL} alt="" />
-                <h3 className="fw-bold">{name}</h3>
+                <div>
+                    <img className="" src={imageURL} alt="" />
+                    <h3 className="fw-bold">{name}</h3>
+                </div>
             </div>
             <div className="d-flex justify-content-between card-footer">
                 <div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import DeleteIcon from '../../../../image/delete-icon.jpg'
+import Loading from '../../../Shared/Loading/Loading';
 
 const DeleteBlogTable = ({ blogs, setIsDeleted }) => {
 
@@ -11,9 +12,8 @@ const DeleteBlogTable = ({ blogs, setIsDeleted }) => {
             .then(res => res.json())
             .then(result => {
                 result.deletedCount && setIsDeleted(false);
-                console.log('deleted successfully', result)
-            })
-    }
+            });
+    };
 
     return (
         <div className="table-responsive">
@@ -39,6 +39,9 @@ const DeleteBlogTable = ({ blogs, setIsDeleted }) => {
                     }
                 </tbody>
             </table>
+            <div className="m-5">
+                {blogs.length === 0 && <Loading></Loading>}
+            </div>
         </div>
     );
 };

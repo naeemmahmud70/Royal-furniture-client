@@ -1,15 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
+
     const onSubmit = data => {
         const adminData = {
             name: data.name,
             email: data.email,
         }
-        console.log(adminData)
+
         const url = `http://localhost:5000/addAdmin`
         fetch(url, {
             method: 'POST',
@@ -17,9 +20,16 @@ const MakeAdmin = () => {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(adminData)
-
         })
-            .then(res => console.log("server side responding", res))
+            .then(res => {
+                console.log(res)
+                if (res.status) {
+                    swal("Done!", "One new admin added successfully!", "success")
+                }
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            });
 
         reset();
     };
@@ -36,11 +46,9 @@ const MakeAdmin = () => {
                 </div>
                 <div className="shadow p-5 rounded">
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <div className="form-group col-md-5 col-sm-12">
                             <input className="form-control" type="text" placeholder="new admin name" {...register("name")} />
                         </div>
-
                         <div className="form-group col-md-5 col-sm-12">
                             <input className="form-control" type="text" placeholder="new admin email" {...register("email")} />
                         </div>

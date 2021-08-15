@@ -5,6 +5,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 
 const AddProduct = () => {
@@ -20,12 +22,11 @@ const AddProduct = () => {
             imageData)
             .then(function (response) {
                 setImageURL(response.data.data.display_url);
-
             })
             .catch(function (error) {
-                console.log(error);
+                toast.error(error.message)
             });
-    }
+    };
 
     const onSubmit = data => {
         const productData = {
@@ -38,7 +39,7 @@ const AddProduct = () => {
             description: data.description,
             imageURL: imageURL
         }
-    
+
         const url = `http://localhost:5000/addProduct`
         fetch(url, {
             method: 'POST',
@@ -50,9 +51,12 @@ const AddProduct = () => {
             .then(res => {
                 console.log("server side responding", res)
                 setImageURL(null)
+                swal("Done!", "One new product added successfully!", "success");
                 reset()
+            })
+            .catch((error) => {
+                toast.error(error.message)
             });
-
     };
 
     return (

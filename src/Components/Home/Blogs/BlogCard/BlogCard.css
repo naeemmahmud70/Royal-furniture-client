@@ -1,14 +1,43 @@
 .blog-card{
     height: 400px;
-    width: 400px;
     border-radius: 7px;
-    margin: 15px;
+    margin: 20px;
     padding: 10px;
 }
 
-.blog-image img{
-    height: 280px;
-    width: 302px;
-    border-radius: 5px;
+ .blog-image img{
+    height: 250px;
+ } 
+
+@media(max-width:992px){
+    .blog-card{
+        height: 340px;
+        width: 100%;
+        margin: 5px;
+        padding: 10px;
+    }
+} 
+
+@media(min-width:992px){
+    .blog-card{
+        width: 440px;
+    }
 }
 
+@media(max-width:992px){
+    .blog-image img{
+        height: 190px;
+    }
+}
+
+@media(min-width:992px){
+    .blog-image img{
+        width: 100%;
+    }
+}
+
+@media(min-width: 1919px){
+    .blog-card{
+        margin: 40px;
+    }
+}

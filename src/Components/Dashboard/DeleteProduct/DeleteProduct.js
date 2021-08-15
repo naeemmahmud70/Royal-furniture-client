@@ -12,7 +12,6 @@ const DeleteProduct = () => {
             .then(data => setProducts(data))
     }, [isDeleted])
 
-
     return (
         <div className="row">
             <div className="col-md-3">

@@ -7,11 +7,13 @@ import { UserContext } from '../../../App';
 import firebase from "firebase/app";
 import "firebase/auth";
 import jwt_decode from "jwt-decode";
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const Sidebar = () => {
+
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log(isAdmin)
 
     useEffect(() => {
         fetch('http://localhost:5000/isAdmin', {
@@ -48,11 +50,15 @@ const Sidebar = () => {
                     photo: ''
                 }
                 setLoggedInUser(signOutUser);
+                swal({
+                    title: "Log Out Successfully!",
+                    icon: "success",
+                });
 
             }).catch((error) => {
-                console.log(error);
+                toast.error(error.message);
             });
-    }
+    };
 
     return (
         <div className=" sidebar d-flex flex-column justify-content-between  col-md-12 py-5 px-4" style={{ height: "100vh" }}>
@@ -73,7 +79,6 @@ const Sidebar = () => {
                     </Link>
                 </li>
 
-
                 {isAdmin && <div>
                     <li>
                         <Link to="/manageOrderList" className="text-white">
@@ -87,7 +92,7 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/deleteProduct" className="text-white" >
-                            <FontAwesomeIcon icon={faTrash} /> <span>Manage Products</span>
+                            <FontAwesomeIcon icon={faTrash} /> <span>Delete Products</span>
                         </Link>
                     </li>
                     <li>
@@ -97,7 +102,7 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/deleteBlog" className="text-white" >
-                            <FontAwesomeIcon icon={faTrash} /> <span>Manage Blog</span>
+                            <FontAwesomeIcon icon={faTrash} /> <span>Delete  Blogs</span>
                         </Link>
                     </li>
                     <li>
@@ -105,8 +110,8 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faUsers} /> <span>Make Admin</span>
                         </Link>
                     </li>
-                </div>}
-
+                </div>
+                }
             </ul>
             <div>
                 <Link onClick={handleLogOut} to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>

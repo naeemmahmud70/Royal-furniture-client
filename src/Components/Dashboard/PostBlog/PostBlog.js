@@ -5,6 +5,9 @@ import Sidebar from '../Sidebar/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import './PostBlog.css'
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
+
 
 const PostBlog = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -21,7 +24,7 @@ const PostBlog = () => {
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
-                console.log(error);
+                toast.error(error.message);
             });
     }
 
@@ -33,7 +36,7 @@ const PostBlog = () => {
             description: data.description,
             imageURL: imageURL
         }
-        console.log(imageURL, blogData);
+        
         const url = `http://localhost:5000/addBlog`
         fetch(url, {
             method: 'POST',
@@ -43,9 +46,14 @@ const PostBlog = () => {
             body: JSON.stringify(blogData)
         })
             .then(res => {
-                console.log("server side responding", res)
+                if (res.status) {
+                    swal("Done!", "One new blog added successfully!", "success")
+                }
                 setImageURL(null);
                 reset();
+            })
+            .catch((error) => {
+                toast.error(error.message);
             });
     };
 

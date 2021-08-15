@@ -3,3 +3,6 @@
         width: 100%;
     }
 }
+.product-details-bg{
+    background:linear-gradient(180deg, #FDE7D9, rgb(255, 248, 220))
+}

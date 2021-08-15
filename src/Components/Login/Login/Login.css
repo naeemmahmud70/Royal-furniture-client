@@ -1,12 +1,12 @@
-.login-form-div{
+/* .login-form-div{
     width: 500px;
     border-radius: 7px;
-}
+} */
 .sign-in-out-btn{
-    border: 0;
+    border: 3px solid rgba(0, 0, 0, 0.733);
     margin: 5px;
-    padding: 7px 15px;
+    padding: 5px 15px;
     border-radius: 5px;
-    background: linear-gradient(180deg, rgba(0, 128, 0, 0.938), rgba(0, 0, 0, 0.918));
+    background: linear-gradient(180deg, rgba(255, 0, 0, 0.849), rgba(0, 128, 0, 0.877));
     color: white;
 }

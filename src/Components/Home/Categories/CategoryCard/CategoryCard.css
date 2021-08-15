@@ -10,3 +10,9 @@
     background:linear-gradient(180deg, #FDE7D9, rgb(255, 248, 220));
     
 }
+
+@media(min-width: 1919px){
+    .category-div{
+        margin: 40px;
+    }
+}

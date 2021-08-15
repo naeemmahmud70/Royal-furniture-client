@@ -8,6 +8,8 @@ import { UserContext } from '../../../App';
 import firebase from "firebase/app";
 import "firebase/auth";
 import jwt_decode from "jwt-decode";
+import toast from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -37,9 +39,13 @@ const Navbar = () => {
                     photo: ''
                 }
                 setLoggedInUser(signOutUser);
+                swal({
+                    title: "Log Out Successfully !",
+                    icon: "success",
+                });
 
             }).catch((error) => {
-                console.log(error);
+                toast.error(error.message);
             });
     }
 

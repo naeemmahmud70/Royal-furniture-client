@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../../../Shared/Loading/Loading';
 
 const SeeOrderListCard = ({ orderList, setIsCanceled }) => {
 
@@ -42,6 +43,9 @@ const SeeOrderListCard = ({ orderList, setIsCanceled }) => {
                     }
                 </tbody>
             </table>
+            <div className="m-5">
+                {orderList.length === 0 && <Loading></Loading>}
+            </div>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../Shared/Loading/Loading';
 import BlogCard from './BlogCard/BlogCard';
 import './Blogs.css'
 
@@ -10,7 +11,7 @@ const Blogs = () => {
             .then(data => setBlogs(data))
     }, [])
     return (
-        <section id="blog" className="m-3">
+        <section id="blog" className="mt-5">
             <div className="d-flex justify-content-center">
                 <div className="text-center under-line">
                     <h1 className="fw-bold">BLOGS</h1>
@@ -18,10 +19,15 @@ const Blogs = () => {
                     <span className=""></span>
                 </div>
             </div>
-            <div className="card-flex">
-                {
-                    blogs.map(blog => <BlogCard blog={blog} key={blog._id}></BlogCard>)
-                }
+            <div className="m-5">
+                {blogs.length === 0 && <Loading></Loading>}
+            </div>
+            <div className="d-flex justify-content-center">
+                <div className="card-flex mt-3">
+                    {
+                        blogs.map(blog => <BlogCard blog={blog} key={blog._id}></BlogCard>)
+                    }
+                </div>
             </div>
         </section>
     );

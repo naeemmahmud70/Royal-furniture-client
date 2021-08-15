@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../../../Shared/Loading/Loading';
 import './ManageOrderTable.css'
 
 const ManageOrderTable = ({ orderList, handleUpdate }) => {
@@ -26,7 +27,6 @@ const ManageOrderTable = ({ orderList, handleUpdate }) => {
                                 <td>{order.order.userName}</td>
                                 <td>{order.order.email}</td>
                                 <td>
-
                                     <div class="dropdown">
                                         <button class="drop-down-btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                                             {order.orderStatus}
@@ -37,13 +37,15 @@ const ManageOrderTable = ({ orderList, handleUpdate }) => {
                                             <li><button onClick={() => handleUpdate(order._id, 'Done')} class="dropdown-item selection-option" type="button">Done</button></li>
                                         </ul>
                                     </div>
-
                                 </td>
                             </tr>
                         )
                     }
                 </tbody>
             </table>
+            <div className="m-5">
+                {orderList.length === 0 && <Loading></Loading>}
+            </div>
         </div>
     );
 };

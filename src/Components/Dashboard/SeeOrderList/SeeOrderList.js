@@ -5,10 +5,10 @@ import './SeeOrderList.css'
 import SeeOrderListCard from './SeeOrderListCard/SeeOrderListCard';
 
 const SeeOrderList = () => {
-    const [orderList, setOrderList] = useState([]);
-    const [isCanceled, setIsCanceled] = useState(false)
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+    const [orderList, setOrderList] = useState([]);
+    const [isCanceled, setIsCanceled] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         fetch('http://localhost:5000/seeOrders?email=' + loggedInUser.email)
@@ -21,7 +21,6 @@ const SeeOrderList = () => {
             <div className="col-md-3">
                 <Sidebar></Sidebar>
             </div>
-
             <div className="col-md-9 bg-light">
                 <h2 className="fw-bold p-2">Order List</h2>
                 <hr />

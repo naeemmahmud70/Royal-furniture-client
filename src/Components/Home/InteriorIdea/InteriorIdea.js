@@ -7,7 +7,7 @@ const InteriorIdea = () => {
         <section className="interior-idea-div">
             <div className="row bg-light mt-5">
                 <div className="col-md-5">
-                    <img className="img-fluid" src={imgIdea} alt="" />
+                    <img className=" interior-image" src={imgIdea} alt="" />
                 </div>
                 <div className="col-md-7 p-5">
                     <h1 className="fw-bold">Interior Idea For Your Room</h1>

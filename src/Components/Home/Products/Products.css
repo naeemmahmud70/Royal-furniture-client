@@ -5,3 +5,9 @@
     align-items: center;
     
 }
+
+@media(min-width: 1919px){
+    .card-flex{
+        width: 90%;
+    }
+}

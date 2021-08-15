@@ -22,3 +22,6 @@
     border-radius: 5px;
     padding: 7px 17px;
 }
+.profile-bg{
+    background:linear-gradient(180deg, #FDE7D9, rgb(255, 248, 220));
+}
