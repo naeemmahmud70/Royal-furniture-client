@@ -7,7 +7,7 @@ const DeleteTable = ({ products, setDeleted }) => {
     const handleDelete = id => {
         setDeleted(true)
         console.log(id)
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(` https://aqueous-taiga-74185.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

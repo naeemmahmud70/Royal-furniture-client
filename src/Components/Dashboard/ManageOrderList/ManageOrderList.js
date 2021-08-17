@@ -9,14 +9,14 @@ const ManageOrderList = () => {
     const [IsStatusUpdate, setStatusUpdate] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/manageOrders')
+        fetch(' https://aqueous-taiga-74185.herokuapp.com/manageOrders')
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [IsStatusUpdate]);
 
     const handleUpdate = (id, orderStatus) => {
         setStatusUpdate(true)
-        axios.patch(`http://localhost:5000/update/${id}`, { status: orderStatus })
+        axios.patch(` https://aqueous-taiga-74185.herokuapp.com/update/${id}`, { status: orderStatus })
             .then(res => {
                 res.data.modifiedCount && setStatusUpdate(false)
                 console.log("responding", res)

@@ -13,7 +13,7 @@ const MakeAdmin = () => {
             email: data.email,
         }
 
-        const url = `http://localhost:5000/addAdmin`
+        const url = ` https://aqueous-taiga-74185.herokuapp.com/addAdmin`
         fetch(url, {
             method: 'POST',
             headers: {

@@ -7,7 +7,7 @@ const ReadFullBlog = () => {
     const { title, imageURL, date, description } = fullBlog;
 
     useEffect(() => {
-        fetch('http://localhost:5000/fullBlog/' + id)
+        fetch(' https://aqueous-taiga-74185.herokuapp.com/fullBlog/' + id)
             .then(res => res.json())
             .then(data => setFullBlog(data))
     }, [id]);

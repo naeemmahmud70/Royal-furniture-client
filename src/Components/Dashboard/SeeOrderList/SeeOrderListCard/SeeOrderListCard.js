@@ -5,7 +5,7 @@ const SeeOrderListCard = ({ orderList, setIsCanceled }) => {
 
     const handleCancel = id => {
         setIsCanceled(true);
-        fetch(`http://localhost:5000/cancel/${id}`, {
+        fetch(` https://aqueous-taiga-74185.herokuapp.com/cancel/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

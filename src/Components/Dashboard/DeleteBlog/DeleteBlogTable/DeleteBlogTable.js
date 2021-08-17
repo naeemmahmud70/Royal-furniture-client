@@ -6,7 +6,7 @@ const DeleteBlogTable = ({ blogs, setIsDeleted }) => {
 
     const handleDelete = id => {
         setIsDeleted(true)
-        fetch(`http://localhost:5000/deleteBlog/${id}`, {
+        fetch(` https://aqueous-taiga-74185.herokuapp.com/deleteBlog/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

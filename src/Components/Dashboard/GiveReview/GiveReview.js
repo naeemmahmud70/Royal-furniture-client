@@ -18,7 +18,7 @@ const GiveReview = () => {
             photo: loggedInUser.photo
         }
 
-        const url = `http://localhost:5000/addReview`
+        const url = ` https://aqueous-taiga-74185.herokuapp.com/addReview`
         fetch(url, {
             method: 'POST',
             headers: {

@@ -11,7 +11,7 @@ const SeeOrderList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/seeOrders?email=' + loggedInUser.email)
+        fetch(' https://aqueous-taiga-74185.herokuapp.com/seeOrders?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrderList(data))
     }, [loggedInUser.email, isCanceled]);

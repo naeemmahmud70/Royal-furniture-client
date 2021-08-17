@@ -37,7 +37,7 @@ const PostBlog = () => {
             imageURL: imageURL
         }
         
-        const url = `http://localhost:5000/addBlog`
+        const url = ` https://aqueous-taiga-74185.herokuapp.com/addBlog`
         fetch(url, {
             method: 'POST',
             headers: {

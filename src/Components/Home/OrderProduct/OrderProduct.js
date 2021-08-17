@@ -16,7 +16,7 @@ const OrderProduct = () => {
     const { name, description, imageURL, price, height, width, depth, } = orderProduct;
 
     useEffect(() => {
-        fetch('http://localhost:5000/orderProduct/' + id)
+        fetch(' https://aqueous-taiga-74185.herokuapp.com/orderProduct/' + id)
             .then(res => res.json())
             .then(data => setOrderProduct(data))
     }, [id]);
@@ -35,7 +35,7 @@ const OrderProduct = () => {
             paymentId
         }
 
-        const url = `http://localhost:5000/addOrder`;
+        const url = ` https://aqueous-taiga-74185.herokuapp.com/addOrder`;
         fetch(url, {
             method: 'POST',
             headers: {

@@ -40,7 +40,7 @@ const AddProduct = () => {
             imageURL: imageURL
         }
 
-        const url = `http://localhost:5000/addProduct`
+        const url = ` https://aqueous-taiga-74185.herokuapp.com/addProduct`
         fetch(url, {
             method: 'POST',
             headers: {

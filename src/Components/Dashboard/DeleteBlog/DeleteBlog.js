@@ -7,7 +7,7 @@ const DeleteBlog = () => {
     const [isDeleted, setIsDeleted] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch(' https://aqueous-taiga-74185.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [isDeleted])
