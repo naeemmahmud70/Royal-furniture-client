@@ -20,4 +20,4 @@
 - MongoDB
 
 ###  `Website Link :` [Live Site](https://royal-furniture-6905b.firebaseapp.com/)
-###  `Server Repo Link :` [Live Site](https://github.com/naeemmahmud70/Royal-furniture-server)
+###  `Server Repo Link :` [Github](https://github.com/naeemmahmud70/Royal-furniture-server)
