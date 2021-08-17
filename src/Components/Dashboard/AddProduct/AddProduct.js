@@ -58,6 +58,7 @@ const AddProduct = () => {
                 toast.error(error.message)
             });
     };
+    
 
     return (
         <div className="row bg-light">
