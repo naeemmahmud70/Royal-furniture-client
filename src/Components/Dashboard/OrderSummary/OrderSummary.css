@@ -1,0 +1,8 @@
+.summary-div-style{
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 5px;
+    background:linear-gradient(180deg, #FDE7D9, rgb(255, 248, 220));
+}

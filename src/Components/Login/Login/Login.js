@@ -212,6 +212,7 @@ const Login = () => {
                             </div>
                             <div className="form-group">
                                 <input className="form-control" type="password" name="password" onBlur={handleBlur} placeholder="enter your password" required />
+                                <small className="text-secondary">Use default77@admin.com and #dev2021 as default admin </small>
                             </div>
                             <input className="sign-in-out-btn fw-bold" type="submit" value={newUser ? "Sign Up" : "Sign In"} />
                         </form>

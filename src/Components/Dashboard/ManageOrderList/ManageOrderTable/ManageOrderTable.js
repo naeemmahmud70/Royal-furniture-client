@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from '../../../Shared/Loading/Loading';
 import './ManageOrderTable.css'
 
-const ManageOrderTable = ({ orderList, handleUpdate }) => {
+const ManageOrderTable = ({ orderList, handleUpdate, handleCancel }) => {
 
     return (
         <div className="table-responsive col-sm-12">
@@ -35,6 +35,7 @@ const ManageOrderTable = ({ orderList, handleUpdate }) => {
                                             <li><button onClick={() => handleUpdate(order._id, 'Pending')} class="dropdown-item selection-option" type="button">Pending</button></li>
                                             <li><button onClick={() => handleUpdate(order._id, 'On Going')} class="dropdown-item selection-option" type="button">On Going</button></li>
                                             <li><button onClick={() => handleUpdate(order._id, 'Done')} class="dropdown-item selection-option" type="button">Done</button></li>
+                                            <li><button onClick={() => handleCancel(order._id)} class="dropdown-item selection-option" type="button">Cancel</button></li>
                                         </ul>
                                     </div>
                                 </td>

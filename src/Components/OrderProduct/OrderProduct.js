@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../../../App';
-import Payment from '../../Payment/Payment';
+import { UserContext } from '../../App';
+import Payment from '../Payment/Payment';
 import './OrderProduct.css';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
@@ -30,8 +30,8 @@ const OrderProduct = () => {
         const orderDetails = {
             ...loggedInUser,
             order: shippingData,
-            orderStatus: '',
-            oderTime: date.toDateString('DD/MM/YY'),
+            orderStatus: 'Pending',
+            oderTime: date.toDateString(),
             paymentId
         }
 

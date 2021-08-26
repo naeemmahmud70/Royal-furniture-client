@@ -6,7 +6,9 @@
 - User can order product, cancel orders, give review, read blogs and can send email.
 - Admin can add, update and delete products and blogs.
 - Admin can add new admin and can change the status of the order list.
+- Admin can see todays, pending and total order in the dashboard.
 - Firebase Authentication & hosting, Stripe payment gateway are also included. 
+- use default admin access with email default77@admin.com and #dev2021.
 
 # Technology
 - HTML5
