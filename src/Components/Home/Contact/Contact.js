@@ -20,6 +20,7 @@ const Contact = () => {
             },
                 (error) => {
                     toast.error(error.message);
+                    console.log(error)
                 });
         e.target.reset()
     }
